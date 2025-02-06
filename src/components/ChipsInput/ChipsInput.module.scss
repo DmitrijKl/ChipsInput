@@ -1,0 +1,37 @@
+.root {
+  width: 100%;
+  max-width: 600px;
+  .chipsInputContainer {
+    background-color: rgb(236, 243, 248);
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    .chipsContainer {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      .inputField {
+        padding: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(31, 45, 86);
+        background-color: rgb(236, 243, 248);
+        border: none;
+        min-width: 40px;
+        display: inline-block;
+        flex-grow: 1;
+        width: auto;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .warning {
+    color: red;
+  }
+}

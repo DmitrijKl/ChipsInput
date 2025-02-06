@@ -1,0 +1,55 @@
+.chipContainer {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  background-color: rgb(181, 220, 248);
+  height: 40px;
+  &.selected {
+    border: 2px solid rgb(58, 126, 175);
+    background-color: #8ca3cc;
+    .chip {
+      background-color: #8ca3cc;
+    }
+  }
+  .chip {
+    font-size: 16px;
+    padding: 10px 4px;
+    background-color: rgb(181, 220, 248);
+    font-weight: 600;
+    color: rgb(31, 45, 86);
+    border: none;
+    text-align: center;
+    display: inline-block;
+    min-width: 40px;
+    width: auto;
+    user-select: none;
+    &:focus {
+      outline: none;
+    }
+  }
+  .deleteButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: none;
+    font-size: 16px;
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    background-color: inherit;
+    transition: transform 0.2s ease, color 0.2s ease;
+    & svg {
+      fill: rgb(31, 45, 86);
+      &:hover {
+        fill: rgb(48, 125, 180);
+      }
+    }
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
