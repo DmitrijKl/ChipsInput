@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import styles from "./ChipsInput.module.scss";
 
 export const useSelectedChips = (
@@ -16,7 +16,8 @@ export const useSelectedChips = (
     setIsMouseDown(false);
   };
 
-  const handleMouseMove = (index: number) => {
+  const handleMouseMove = (e: MouseEvent, index: number) => {
+    e.preventDefault();
     if (isMouseDown) {
       setSelectedChips((prevSelectedChips) =>
         new Set(prevSelectedChips).add(index),
@@ -62,7 +63,5 @@ export const useSelectedChips = (
     handleMouseUp,
     handleMouseDown,
     handleMouseMove,
-    handleDeleteKeyPress,
-    handleDeleteSelectedChips,
   };
 };

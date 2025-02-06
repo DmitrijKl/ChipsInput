@@ -1,6 +1,7 @@
 .root {
   width: 100%;
   max-width: 600px;
+  user-select: none;
   .chipsInputContainer {
     background-color: rgb(236, 243, 248);
     padding: 10px 10px;
@@ -20,7 +21,7 @@
         font-weight: 600;
         color: rgb(31, 45, 86);
         background-color: rgb(236, 243, 248);
-        border: none;
+        border: 2px solid rgba(255, 255, 255, 0);
         min-width: 40px;
         display: inline-block;
         flex-grow: 1;

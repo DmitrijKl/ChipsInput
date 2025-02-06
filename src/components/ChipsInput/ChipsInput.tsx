@@ -72,8 +72,8 @@ export const ChipsInput: React.FC<ChipsInputProps> = ({ value, onChange }) => {
     <div className={styles.root}>
       <div
         className={styles.chipsInputContainer}
-        onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
+        onMouseDown={handleMouseDown}
       >
         <div className={styles.chipsContainer}>
           {editedChips.map((chip, index) => (
