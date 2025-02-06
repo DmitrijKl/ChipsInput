@@ -1,5 +1,6 @@
 import { ChangeEvent, KeyboardEvent, MouseEvent } from "react";
 import styles from "./Chip.module.scss";
+import classNames from "classnames";
 import { IoCloseSharp } from "react-icons/io5";
 
 type СhipProps = {
@@ -64,8 +65,10 @@ export const Chip: React.FC<СhipProps> = ({
   return (
     <div
       key={index}
-      onMouseMove={(e: MouseEvent) => handleMouseMove(e, index)}
-      className={`${styles.chipContainer} ${isSelected ? styles.selected : ""}`}
+      onMouseEnter={(e: MouseEvent) => handleMouseMove(e, index)}
+      className={classNames(styles.chipContainer, {
+        [styles.selected]: isSelected,
+      })}
     >
       <input
         className={styles.chip}
