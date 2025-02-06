@@ -41,7 +41,12 @@ export const useSelectedChips = (
   };
 
   useEffect(() => {
-    const handleDocumentClick: EventListener = (e) => {
+    const handleEscapeClearSelectedChips = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedChips(new Set());
+      }
+    };
+    const handleClickClearSelectedChips: EventListener = (e) => {
       if (
         !(e.target instanceof HTMLElement) ||
         !e.target.closest(`.${styles.chipsContainer}`)
@@ -49,12 +54,14 @@ export const useSelectedChips = (
         setSelectedChips(new Set());
       }
     };
-    document.addEventListener("click", handleDocumentClick);
+    document.addEventListener("click", handleClickClearSelectedChips);
     document.addEventListener("keydown", handleDeleteKeyPress);
+    document.addEventListener("keydown", handleEscapeClearSelectedChips);
 
     return () => {
-      document.removeEventListener("click", handleDocumentClick);
+      document.removeEventListener("click", handleClickClearSelectedChips);
       document.removeEventListener("keydown", handleDeleteKeyPress);
+      document.removeEventListener("keydown", handleEscapeClearSelectedChips);
     };
   }, [selectedChips]);
 
