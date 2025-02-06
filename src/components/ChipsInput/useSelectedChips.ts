@@ -57,11 +57,13 @@ export const useSelectedChips = (
     document.addEventListener("click", handleClickClearSelectedChips);
     document.addEventListener("keydown", handleDeleteKeyPress);
     document.addEventListener("keydown", handleEscapeClearSelectedChips);
+    document.addEventListener("mouseup", handleMouseUp);
 
     return () => {
       document.removeEventListener("click", handleClickClearSelectedChips);
       document.removeEventListener("keydown", handleDeleteKeyPress);
       document.removeEventListener("keydown", handleEscapeClearSelectedChips);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
   }, [selectedChips]);
 
