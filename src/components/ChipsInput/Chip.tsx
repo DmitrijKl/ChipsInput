@@ -24,11 +24,15 @@ export const Chip: React.FC<СhipProps> = ({
   selectedChips,
 }) => {
   const updateChips = (updatedChips: string[]) => {
-    setEditedChips(updatedChips);
     onChange(updatedChips.join(", "));
+    setEditedChips(updatedChips);
   };
 
   const handleChipBlur = () => {
+    let quoteCount = (editedChips[index].match(/"/g) || []).length;
+    if (quoteCount % 2 !== 0) {
+      editedChips[index] = editedChips[index].replace(/"/, "");
+    }
     const updatedChips = [...editedChips]
       .join(", ")
       .split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/)
